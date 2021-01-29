@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wall here.
+ * Write a description of class Solid here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wall extends Solid
+public class Solid extends Block
 {
     /**
-     * Act - do whatever the Wall wants to do. This method is called whenever
+     * Act - do whatever the Solid wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
