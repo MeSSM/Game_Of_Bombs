@@ -2,18 +2,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Box here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class Box extends Solid
 {
-    /**
-     * Act - do whatever the Box wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+  public boolean checkCollisions(int x,int y,Class cls)
     {
-        // Add your action code here.
-    }    
+      Actor actor = getOneObjectAtOffset(x,y,cls);
+      return actor != null; //return true if actor!=null (when using it in a condition write if(checkCollisions(x,y,cls))
+    }
+    public void act()
+    {
+      if(checkCollisions(0,0,Fire.class))
+      {
+        getWorld().removeObject(this);
+      }
+    }
 }
