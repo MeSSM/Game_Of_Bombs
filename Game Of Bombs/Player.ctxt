@@ -1,15 +1,13 @@
 #BlueJ class context
 comment0.target=Player
-comment1.params=
-comment1.target=void\ act()
-comment2.params=
-comment2.target=void\ checkMovements()
-comment3.params=x\ y\ cls
-comment3.target=boolean\ checkCollisions(int,\ int,\ java.lang.Class)
+comment1.params=UpKey\ DownKey\ RightKey\ LeftKey
+comment1.target=void\ checkMovements(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=x\ y\ cls
+comment2.target=boolean\ checkCollisions(int,\ int,\ java.lang.Class)
+comment3.params=
+comment3.target=void\ placeBombs()
 comment4.params=
-comment4.target=void\ placeBombs()
+comment4.target=void\ checkCollisionWithFire()
 comment5.params=
-comment5.target=void\ checkCollisionWithFire()
-comment6.params=
-comment6.target=void\ dead()
-numComments=7
+comment5.target=void\ dead()
+numComments=6

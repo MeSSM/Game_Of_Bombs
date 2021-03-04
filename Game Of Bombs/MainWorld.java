@@ -19,11 +19,14 @@ public class MainWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(25, 25, 32);
         int d = 6;
+        
+        Random rand = new Random();
         //list of block that need to be empty
         ArrayList<Point> E = new ArrayList<Point>();
         E.add(new Point(d+1, d+1));E.add(new Point(d+1, d+2));E.add(new Point(d+11, d+1));E.add(new Point(d+2, d+1));E.add(new Point(d+10, d+1));E.add(new Point(d+11, d+2));E.add(new Point(d+1, d+11));
         E.add(new Point(d+1, d+10));E.add(new Point(d+2, d+11));E.add(new Point(d+11, d+11));E.add(new Point(d+10, d+11));E.add(new Point(d+11, d+10));
-        addObject(new Player(), d+1, d+1);
+        addObject(new Player1(), d+1, d+1);
+        addObject(new Player2(), d+11, d+11);
         for(int i=0; i<13; i++){
             addObject(new Wall(), d+i, d);
             addObject(new Wall(), d+i, d+12);
@@ -40,11 +43,15 @@ public class MainWorld extends World
             }
         }
         // random insert of blocks
-
+        int p =0;
         for(int i=d+1; i<d+12;i++){
             for(int k=0; k<14; k++){
                 int j = (int)(Math.random() * ((d+11) - (d+1) + 1) + (d+1));
                 if (getObjectsAt(i,j, Solid.class).size() == 0){
+                    if (rand.nextInt(10) < 1 && p<8){
+                        addObject(new RangBooster(), i, j);
+                        p++;
+                    }
                     addObject(new Box(), i, j);
                 }
             }
@@ -57,8 +64,11 @@ public class MainWorld extends World
         // clearing area for the player
         for (Point P : E){
             removeObjects(getObjectsAt((int)P.getX(),(int)P.getY(), Box.class));
+            removeObjects(getObjectsAt((int)P.getX(),(int)P.getY(), Powers.class));
         }
 
 
     }
+    
+   
 }
